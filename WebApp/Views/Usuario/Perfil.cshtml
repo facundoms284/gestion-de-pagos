@@ -1,0 +1,65 @@
+@using LogicaNegocio
+@model LogicaNegocio.Usuario
+
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<h1>Perfil</h1>
+
+<table class="table table-dark table-hover">
+    <thead>
+    <tr>
+        <th>Rol</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Fecha Incorporación</th>
+        <th>Equipo</th>
+        <th>Total gastado este mes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>@Model.Rol</td>
+        <td>@Model.Nombre</td>
+        <td>@Model.Apellido</td>
+        <td>@Model.Email</td>
+        <td>@Model.FechaIncorporacion</td>
+        <td>@Model.Equipo</td>
+        <td>$@ViewBag.TotalGastadoMes</td>
+    </tbody>
+</table>
+
+@if (Context.Session.GetString("Rol") == Rol.GERENTE.ToString())
+{
+    <h2>Usuarios del equipo</h2>
+    List<Usuario> usuariosEquipo = ViewBag.Usuarios;
+
+    @if (usuariosEquipo != null && usuariosEquipo.Count > 0)
+    {
+        <table class="table table-dark table-hover">
+            <thead>
+            <tr>
+                <th>Email</th>
+                <th>Nombre Completo</th>
+                <th>Fecha Incorporación</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (Usuario usuario in usuariosEquipo)
+            {
+                <tr>
+                    <td>@usuario.Email</td>
+                    <td>@usuario.Nombre @usuario.Apellido</td>
+                    <td>@usuario.FechaIncorporacion.ToString("dd/MM/yyyy")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay otros usuarios en este equipo registrados.</p>
+    }
+}
