@@ -32,3 +32,4 @@
 /Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/obj/Debug/net8.0/WebApp.pdb
 /Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/obj/Debug/net8.0/WebApp.genruntimeconfig.cache
 /Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/obj/Debug/net8.0/ref/WebApp.dll
+/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/obj/Debug/net8.0/WebApp.sourcelink.json

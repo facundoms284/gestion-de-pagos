@@ -1,0 +1,18 @@
+@using LogicaNegocio
+@model LogicaNegocio.TipoDeGasto
+
+<h2>Eliminar Gasto</h2>
+
+<form method="post">
+    <div>
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" name="Nombre" value="@Model.Nombre" readonly>
+    </div>
+    <div>
+        <label for="Descripcion" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" name="Descripcion" value="@Model.Descripcion" readonly>
+    </div>
+    <button type="submit" class="btn btn-primary">Eliminar</button>
+</form>
+
+<span>@ViewBag.Mensaje</span>

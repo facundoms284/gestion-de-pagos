@@ -1,0 +1,19 @@
+@using LogicaNegocio
+@model LogicaNegocio.TipoDeGasto
+
+<h2>Agregar Gasto</h2>
+
+<form method="post">
+    <div>
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" name="Nombre" required>
+    </div>
+    <div class="mb-3">
+        <label for="Descripcion" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" name="Descripcion" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Agregar</button>
+</form>
+
+<span>@ViewBag.Mensaje</span>

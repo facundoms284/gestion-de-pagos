@@ -53,7 +53,7 @@ public class Sistema
         {
             this.AltaUsuario(new Usuario("Ana", "Lopez", "seguro12", this._equipos[0], DateTime.Now.AddDays(-400), Rol.EMPLEADO));
             this.AltaUsuario(new Usuario("Bruno", "Perez", "clave789", this._equipos[0], DateTime.Now.AddDays(-300), Rol.EMPLEADO));
-            this.AltaUsuario(new Usuario("Camila", "Ramos", "abc12341a", this._equipos[1], DateTime.Now.AddDays(-200), Rol.GERENTE));
+            this.AltaUsuario(new Usuario("Camila", "Ramos", "seguro12", this._equipos[1], DateTime.Now.AddDays(-200), Rol.GERENTE));
             this.AltaUsuario(new Usuario("Diego", "Suarez", "xyz789ba0", this._equipos[1], DateTime.Now.AddDays(-150), Rol.EMPLEADO));
             this.AltaUsuario(new Usuario("Elena", "Martinez", "elena212kj", this._equipos[2], DateTime.Now.AddDays(-120), Rol.GERENTE));
             this.AltaUsuario(new Usuario("Federico", "Gomez", "fede456hajw", this._equipos[2], DateTime.Now.AddDays(-100), Rol.EMPLEADO));
@@ -184,9 +184,30 @@ public class Sistema
         {
             if (pago != null)
             {
-                _pagos.Add(pago);
+                this._pagos.Add(pago);
             }
         }
+
+        public void AgregarTipoDeGasto(TipoDeGasto tipoDeGasto)
+        {
+            if (tipoDeGasto != null)
+            {
+                this._tiposDeGastos.Add(tipoDeGasto);
+            }
+        }
+
+        public List<Pago> ObtenerPagos()
+        {
+            List<Pago> aRetornar = new List<Pago>();
+            
+            foreach (Pago pago in this._pagos)
+            {
+                aRetornar.Add(pago);
+            }
+
+            return aRetornar;
+        }
+        
         public List<Pago> ObtenerPagosDeUsuario(string email)
         {
             List<Pago> aRetornar = new List<Pago>();
@@ -384,5 +405,18 @@ public class Sistema
 
             return null;
         }
+
+        public void EliminarTipoDeGastoPorNombre(string nombre)
+        {
+            for (int i = 0; i < _tiposDeGastos.Count; i++)
+            {
+                if (_tiposDeGastos[i].Nombre == nombre)
+                {
+                    _tiposDeGastos.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+
 
     }

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using LogicaNegocio
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -25,7 +26,22 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Login">Login</a>
                         </li>
                     }
-                    else if (Context.Session.GetString("Email") != null)
+                    else if (Context.Session.GetString("Email") != null && Context.Session.GetString("Rol") == Rol.GERENTE.ToString())
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Perfil">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pago" asp-action="Index">Pagos mensuales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="TipoDeGasto" asp-action="Index">Tipo de Gastos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Logout">Logout</a>
+                        </li>
+                    }
+                    else
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Perfil">Perfil</a>
