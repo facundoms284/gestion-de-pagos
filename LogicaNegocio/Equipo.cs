@@ -36,9 +36,4 @@ public class Equipo
             throw new Exception("Id inválido");
         }
     }
-
-    public override string ToString()
-    {
-        return $"{this._nombre}";
-    }
 }

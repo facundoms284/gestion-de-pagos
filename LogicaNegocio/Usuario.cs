@@ -142,8 +142,4 @@ public class Usuario
             Usuario user = obj as Usuario;
             return this.Email == user.Email;
         }
-        public override string ToString()
-        {
-            return $"{this._nombre} {this._apellido} - {this._email} - {this._equipo}";
-        }
     }

@@ -72,19 +72,5 @@ public abstract class Pago
             } 
         }
         public abstract double CalcularCosto();
-
-        public override string ToString()
-        {
-            string aRetornar;
-            aRetornar = $"ID: {this._id} - Monto: {this._monto} - Metodo de Pago: {this._metodoDePago}";
-            
-            Recurrente recurrente = this as Recurrente;
-            if (recurrente != null)
-            {
-                aRetornar = $"ID: {this._id} - Monto: {this._monto} - Metodo de Pago: {this._metodoDePago} - Pagos Pendientes: {recurrente.CalcularPagosPendientes()}";
-            }
-            return aRetornar;
-        }
-
     }
     

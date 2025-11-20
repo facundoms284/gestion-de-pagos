@@ -20,6 +20,9 @@ public class Unico : Pago
     public override void Validar()
     {
         this.ValidarFechaPago();
+        this.ValidarNumeroRecibo();
+        this.ValidarMonto();
+        this.ValidarDescripcion();
     }
 
     private void ValidarFechaPago()

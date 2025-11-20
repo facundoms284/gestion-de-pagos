@@ -1,7 +1,7 @@
 @using LogicaNegocio
 @model LogicaNegocio.Pago
 
-<div class="d-flex flex-column gap-2">
+<div class="d-flex flex-column gap-2 w-60 justify-content-center align-items-center border">
     @if (ViewBag.Mensaje != null)
     {
         <span class="alert alert-danger text-center">@ViewBag.Mensaje</span>
@@ -9,21 +9,21 @@
 
     <h2>Agregar Pago</h2>
 
-    <form method="post" class="d-flex flex-column gap-2 mb-4">
+    <form method="post" class="d-flex flex-column gap-2 mb-4 w-100 p-4">
         <div>
             <label  class="form-label">Tipo de pago</label>
-            <select name="TipoPagoSeleccionado">
+            <select name="TipoPagoSeleccionado" class="form-control">
                 <option value="RECURRENTE">RECURRENTE</option>
                 <option value="UNICO">UNICO</option>
             </select>
         </div>
         <div class="mb-3">
             <label for="Descripcion" class="form-label">Descripcion</label>
-            <input type="text" class="form-control" name="Descripcion" required>
+            <input type="text" class="form-control" name="Descripcion" placeholder="Ej: Software necesario para realizar procedimientos." required>
         </div>
         <div class="mb-3">
             <label for="Monto" class="form-label">Monto</label>
-            <input type="number" class="form-control" name="Monto" min="1" required>
+            <input type="number" class="form-control" name="Monto" min="1" placeholder="Ej: 2200" required>
         </div>
         <div class="mb-3">
             <label class="form-label" for="MetodoDePago"> Método de pago</label>
@@ -35,7 +35,7 @@
         </div>
         <div class="mb-3">
             <label for="TipoDeGasto" class="form-label">Tipo de Gasto</label>
-            <select name="TipoDeGasto">
+            <select name="TipoDeGasto" class="form-control">
                 @foreach (TipoDeGasto tGasto in ViewBag.TiposDeGastos)
                 {
                     <option value="@tGasto.Nombre">@tGasto.Nombre - <span>@tGasto.Descripcion</span></option>
