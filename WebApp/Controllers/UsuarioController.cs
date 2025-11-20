@@ -59,7 +59,7 @@ public class UsuarioController : Controller
         
         if (email == null) return RedirectToAction("Login");
         
-        Usuario usuario = sistema.BuscarUsuarioPorEmail(email);
+        Usuario usuario = sistema.ObtenerUsuarioPorEmail(email);
         
         List<Usuario> usuariosEquipo = sistema.ObtenerUsuariosPorEquipo(usuario.Equipo.Nombre);
         usuariosEquipo = sistema.OrdenarUsuariosEquipoPorEmailAsc(usuariosEquipo);

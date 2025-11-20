@@ -61,10 +61,15 @@ public abstract class Pago
         {
             this._id = Pago._s_ultimoId++;
         }
+
+        public abstract void Validar();
         
         public virtual double CostoMostrar 
-        { 
-            get { return CalcularCosto(); } 
+        {
+            get
+            {
+                return CalcularCosto();
+            } 
         }
         public abstract double CalcularCosto();
 

@@ -15,6 +15,28 @@ public class Equipo
         this._nombre = nombre;
     }
 
+    public void Validar()
+    {
+        this.ValidarNombre();
+        this.ValidarId();
+    }
+
+    private void ValidarNombre()
+    {
+        if (string.IsNullOrEmpty(this._nombre))
+        {
+            throw new Exception("El nombre del equipo no puede estar vacío");
+        }
+    }
+
+    private void ValidarId()
+    {
+        if (this._id == null)
+        {
+            throw new Exception("Id inválido");
+        }
+    }
+
     public override string ToString()
     {
         return $"{this._nombre}";

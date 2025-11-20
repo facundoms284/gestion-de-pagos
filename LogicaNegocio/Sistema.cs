@@ -182,6 +182,7 @@ public class Sistema
         }
         public void AgregarPago(Pago pago)
         {
+            pago.Validar();
             if (pago != null)
             {
                 this._pagos.Add(pago);
@@ -190,6 +191,7 @@ public class Sistema
 
         public void AgregarTipoDeGasto(TipoDeGasto tipoDeGasto)
         {
+            tipoDeGasto.Validar();
             if (tipoDeGasto != null)
             {
                 this._tiposDeGastos.Add(tipoDeGasto);
@@ -324,20 +326,6 @@ public class Sistema
             }
             return usuario;
         }
-
-        public Usuario BuscarUsuarioPorEmail(string email)
-        {
-            Usuario usuario = null;
-            foreach (Usuario u in this._usuarios)
-            {
-                if (u.Email == email)
-                {
-                    usuario = u;
-                    break;
-                }
-            }
-            return usuario;
-        }
         
         public List<Pago> ObtenerPagosMesPorUsuario(string email)
         {
@@ -449,7 +437,7 @@ public class Sistema
 
             return aRetornar;
         }
-
+        
         public List<Pago> ObtenerPagosPorFecha(DateTime fecha)
         {
             List<Pago> aRetornar = new List<Pago>();
@@ -476,6 +464,4 @@ public class Sistema
             }
             return aRetornar;
         }
-
-
     }

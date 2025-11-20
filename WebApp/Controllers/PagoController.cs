@@ -32,10 +32,15 @@ public class PagoController : Controller
     }
 
     [GerenteFilter]
-    public IActionResult AgregarPago()
+    public IActionResult AgregarPago(string mensaje)
     {
+        if (mensaje != null && !string.IsNullOrEmpty(mensaje))
+        {
+            ViewBag.Mensaje = mensaje;
+        }
+        
         string email = HttpContext.Session.GetString("Email");
-        Usuario usuario = sistema.BuscarUsuarioPorEmail(email);
+        Usuario usuario = sistema.ObtenerUsuarioPorEmail(email);
         ViewBag.Usuario = usuario;
         List<TipoDeGasto> tiposDeGastos = sistema.ObtenerTiposDeGastos();
         ViewBag.TiposDeGastos = tiposDeGastos;
@@ -57,7 +62,7 @@ public class PagoController : Controller
     {
         try
         {
-            Usuario usuario = sistema.BuscarUsuarioPorEmail(HttpContext.Session.GetString("Email"));
+            Usuario usuario = sistema.ObtenerUsuarioPorEmail(HttpContext.Session.GetString("Email"));
             //Obtenemos el tipo de gasto por nombre
             TipoDeGasto encontrado = sistema.ObtenerTipoDeGastoPorNombre(TipoDeGasto);
             TipoDeGasto tipoDeGasto = new TipoDeGasto(encontrado.Nombre, encontrado.Descripcion);
@@ -91,12 +96,12 @@ public class PagoController : Controller
             }
         
             sistema.AgregarPago(nuevoPago);
+            TempData["Mensaje"] = "Pago cargado con éxito!";
             return RedirectToAction("Index");
         }
         catch (Exception e)
         {
-            throw new Exception(e.Message);
-            return View();
+            return RedirectToAction("AgregarPago", new { mensaje = e.Message });
         }
     }
 

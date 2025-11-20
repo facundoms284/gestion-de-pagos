@@ -1,71 +1,77 @@
 @using LogicaNegocio
 @model LogicaNegocio.Pago
 
-<h2>Agregar Pago</h2>
+<div class="d-flex flex-column gap-2">
+    @if (ViewBag.Mensaje != null)
+    {
+        <span class="alert alert-danger text-center">@ViewBag.Mensaje</span>
+    }
 
-<form method="post" class="d-flex flex-column gap-2 mb-4">
-    <div>
-        <label  class="form-label">Tipo de pago</label>
-        <select name="TipoPagoSeleccionado">
-            <option value="RECURRENTE">RECURRENTE</option>
-            <option value="UNICO">UNICO</option>
-        </select>
-    </div>
-    <div class="mb-3">
-        <label for="Descripcion" class="form-label">Descripcion</label>
-        <input type="text" class="form-control" name="Descripcion" required>
-    </div>
-    <div class="mb-3">
-        <label for="Monto" class="form-label">Monto</label>
-        <input type="number" class="form-control" name="Monto" required>
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="MetodoDePago"> Método de pago</label>
-        <select class="form-control" name="MetodoDePago">
-            <option value="@MetodoDePago.CREDITO">CREDITO</option>
-            <option value="@MetodoDePago.DEBITO">DEBITO</option>
-            <option value="@MetodoDePago.EFECTIVO">EFECTIVO</option>
-        </select>
-    </div>
-    <div class="mb-3">
-        <label for="TipoDeGasto" class="form-label">Tipo de Gasto</label>
-        <select name="TipoDeGasto">
-            @foreach (TipoDeGasto tGasto in ViewBag.TiposDeGastos)
-            {
-                <option value="@tGasto.Nombre">@tGasto.Nombre - <span>@tGasto.Descripcion</span></option>
-            }
-        </select>
-    </div>
-    <div>
-        <label for="Usuario" class="form-label">Usuario</label>
-        <input type="text" class="form-control" name="Usuario" value="@ViewBag.Usuario" readonly>
-    </div>
-    
-    <div id="campos-recurrente">
-    <div class="mb-3">
-        <label for="FechaDesde" class="form-label">Fecha Desde</label>
-        <input type="date" class="form-control" name="FechaDesde" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly>
-    </div>
+    <h2>Agregar Pago</h2>
 
-    <div class="mb-3">
-        <label for="FechaHasta" class="form-label">Fecha Hasta</label>
-        <input type="date" class="form-control" name="FechaHasta">
-    </div>
-    </div>
-    
-    <div id="campos-unico" style="display:none;">
+    <form method="post" class="d-flex flex-column gap-2 mb-4">
+        <div>
+            <label  class="form-label">Tipo de pago</label>
+            <select name="TipoPagoSeleccionado">
+                <option value="RECURRENTE">RECURRENTE</option>
+                <option value="UNICO">UNICO</option>
+            </select>
+        </div>
         <div class="mb-3">
-            <label for="FechaPago" class="form-label">Fecha de Pago</label>
-            <input type="date" class="form-control" name="FechaPago" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly>
+            <label for="Descripcion" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" name="Descripcion" required>
+        </div>
+        <div class="mb-3">
+            <label for="Monto" class="form-label">Monto</label>
+            <input type="number" class="form-control" name="Monto" min="1" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="MetodoDePago"> Método de pago</label>
+            <select class="form-control" name="MetodoDePago">
+                <option value="@MetodoDePago.CREDITO">CREDITO</option>
+                <option value="@MetodoDePago.DEBITO">DEBITO</option>
+                <option value="@MetodoDePago.EFECTIVO">EFECTIVO</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="TipoDeGasto" class="form-label">Tipo de Gasto</label>
+            <select name="TipoDeGasto">
+                @foreach (TipoDeGasto tGasto in ViewBag.TiposDeGastos)
+                {
+                    <option value="@tGasto.Nombre">@tGasto.Nombre - <span>@tGasto.Descripcion</span></option>
+                }
+            </select>
+        </div>
+        <div>
+            <label for="Usuario" class="form-label">Usuario</label>
+            <input type="text" class="form-control" name="Usuario" value="@ViewBag.Usuario" readonly>
+        </div>
+    
+        <div id="campos-recurrente">
+            <div class="mb-3">
+                <label for="FechaDesde" class="form-label">Fecha Desde</label>
+                <input type="date" class="form-control" name="FechaDesde" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="FechaHasta" class="form-label">Fecha Hasta</label>
+                <input type="date" class="form-control" name="FechaHasta">
+            </div>
+        </div>
+    
+        <div id="campos-unico" style="display:none;">
+            <div class="mb-3">
+                <label for="FechaPago" class="form-label">Fecha de Pago</label>
+                <input type="date" class="form-control" name="FechaPago" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="NumeroRecibo" class="form-label">Número de Recibo</label>
+                <input type="text" class="form-control" name="NumeroRecibo">
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label for="NumeroRecibo" class="form-label">Número de Recibo</label>
-            <input type="text" class="form-control" name="NumeroRecibo">
-        </div>
-    </div>
-
-    <script>
+        <script>
     document.querySelector("select[name='TipoPagoSeleccionado']")
         .addEventListener("change", function() {
             const camposUnico = document.getElementById("campos-unico");
@@ -86,5 +92,6 @@
         });
     </script>
 
-    <button type="submit" class="btn btn-primary">Agregar</button>
-</form>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+</div>

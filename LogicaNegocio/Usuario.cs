@@ -94,7 +94,7 @@ public class Usuario
         {
             if (this.Contrasena.Length < 8)
             {
-                throw new Exception("La contrasena debe tener al menos 8 caracteres");
+                throw new Exception("La contraseña debe tener al menos 8 caracteres");
             }
         }
 

@@ -45,6 +45,37 @@ public class Recurrente : Pago
             this._fechaDesde = DateTime.Now;
             this._fechaHasta = hasta;
         }
+
+        public override void Validar()
+        {
+            this.ValidarFechaHasta();
+            this.ValidarMonto();
+            this.ValidarDescripcion();
+        }
+
+        private void ValidarFechaHasta()
+        {
+            if (this._fechaHasta < this._fechaDesde)
+            {
+                throw new Exception("Fecha inválida.");
+            }
+        }
+        
+        private void ValidarMonto()
+        {
+            if (this.Monto < 1)
+            {
+                throw new Exception("Monto inválido.");
+            }
+        }
+
+        private void ValidarDescripcion()
+        {
+            if (string.IsNullOrEmpty(this.Descripcion))
+            {
+                throw new Exception("Descripción inválida.");
+            }
+        }
         public int CalcularPagosPendientes()
         {
             //0 pagos pendientes.
