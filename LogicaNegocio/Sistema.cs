@@ -267,7 +267,7 @@ public class Sistema
             throw new Exception("No se encontro el equipo");
         }
 
-        public List<Pago> ObtenerPagosMes()
+        public List<Pago> ObtenerPagosMes(List<Pago> pagos)
         {
             List<Pago> aRetornar = new List<Pago>();
             DateTime hoy = DateTime.Now;
@@ -278,7 +278,7 @@ public class Sistema
             DateTime inicioMes = new DateTime(añoActual, mesActual, 1);
             DateTime finMes = inicioMes.AddMonths(1).AddDays(-1);
             
-            foreach (Pago pago in _pagos)
+            foreach (Pago pago in pagos)
             {
                 if (pago is Recurrente recurrente)
                 {
@@ -302,7 +302,7 @@ public class Sistema
         public List<TipoDeGasto> ListarGastos()
         {
             List<TipoDeGasto> aRetornar = new List<TipoDeGasto>();
-            List<Pago> pagosMes = ObtenerPagosMes();
+            List<Pago> pagosMes = ObtenerPagosMes(this._pagos);
 
             foreach (Pago pago in pagosMes)
             {
@@ -341,7 +341,7 @@ public class Sistema
         
         public List<Pago> ObtenerPagosMesPorUsuario(string email)
         {
-            List<Pago> pagosMensuales = new List<Pago>(ObtenerPagosMes());
+            List<Pago> pagosMensuales = new List<Pago>(ObtenerPagosMes(this._pagos));
             List<Pago> aRetornar = new List<Pago>();
             foreach (Pago pago in pagosMensuales)
             {
@@ -416,6 +416,65 @@ public class Sistema
                     break;
                 }
             }
+        }
+        
+        public List<Pago> ObtenerPagosPorEquipo(string nombre)
+        {
+            List<Pago> aRetornar = new List<Pago>();
+
+            foreach (Pago pago in this._pagos)
+            {
+                Usuario usuario = pago.Usuario;
+                if (usuario.Equipo.Nombre == nombre)
+                {
+                    aRetornar.Add(pago);
+                }
+            }
+            
+            return aRetornar;
+        }
+
+        public Usuario ObtenerUsuarioPorEmail(string email)
+        {
+            Usuario aRetornar = null;
+            
+            foreach (Usuario usuario in this._usuarios)
+            {
+                if (usuario.Email == email)
+                {
+                    aRetornar = usuario;
+                    break;
+                }
+            }
+
+            return aRetornar;
+        }
+
+        public List<Pago> ObtenerPagosPorFecha(DateTime fecha)
+        {
+            List<Pago> aRetornar = new List<Pago>();
+
+            foreach (Pago pago in this._pagos)
+            {
+                if (pago is Recurrente recurrente)
+                {
+                    if (recurrente.FechaDesde.Month == fecha.Month && recurrente.FechaDesde.Year == fecha.Year)
+                    {
+                        if (recurrente.FechaDesde.Month >= DateTime.Now.Month && recurrente.FechaHasta?.Month <= DateTime.Now.Month)
+                        {
+                        aRetornar.Add(pago);
+                        }
+                    }
+                }
+                else if(pago is  Unico unico)
+                {
+                    if (unico.FechaPago.Month == fecha.Month && unico.FechaPago.Year == fecha.Year)
+                    {
+                        aRetornar.Add(pago);
+                    }
+                }
+            }
+            return aRetornar;
         }
 
 

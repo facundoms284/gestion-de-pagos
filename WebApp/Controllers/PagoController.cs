@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using LogicaNegocio;
+using WebApp.Filters;
 
 namespace WebApp.Controllers;
 
+[LoginFilter]
 public class PagoController : Controller
 {
     private Sistema sistema = Sistema.Instancia;
@@ -10,16 +12,26 @@ public class PagoController : Controller
     public IActionResult Index()
     {
         string email = HttpContext.Session.GetString("Email");
-        if (email == null)
+        Usuario usuarioActual = sistema.ObtenerUsuarioPorEmail(email);
+        
+        if (HttpContext.Session.GetString("Rol") == Rol.EMPLEADO.ToString())
         {
-            return RedirectToAction("Login", "Usuario");
+            List<Pago> pagosMes = sistema.ObtenerPagosMesPorUsuario(email);
+            pagosMes = sistema.OrdenarPagosPorMontoDesc(pagosMes);
+            return View(pagosMes);
         }
 
-        List<Pago> pagosMes = sistema.ObtenerPagosMesPorUsuario(email);
-        pagosMes = sistema.OrdenarPagosPorMontoDesc(pagosMes);
-        return View(pagosMes);
+        if (usuarioActual != null)
+        {
+            List<Pago> pagosEquipo = new List<Pago>(sistema.ObtenerPagosPorEquipo(usuarioActual.Equipo.Nombre));
+            pagosEquipo = sistema.OrdenarPagosPorMontoDesc(sistema.ObtenerPagosMes((pagosEquipo)));
+            return View(pagosEquipo);
+        }
+        
+        return View();
     }
 
+    [GerenteFilter]
     public IActionResult AgregarPago()
     {
         string email = HttpContext.Session.GetString("Email");
@@ -86,6 +98,22 @@ public class PagoController : Controller
             throw new Exception(e.Message);
             return View();
         }
+    }
+
+    [GerenteFilter]
+    public IActionResult FiltrarPorFecha(DateTime Fecha)
+    {
+        string email = HttpContext.Session.GetString("Email");
+        Usuario usuarioActual = sistema.ObtenerUsuarioPorEmail(email);
+        
+        if (usuarioActual != null)
+        {
+            List<Pago> pagosFiltrados = new List<Pago>(sistema.ObtenerPagosPorEquipo(usuarioActual.Equipo.Nombre));
+            pagosFiltrados = sistema.ObtenerPagosPorFecha(Fecha);
+            return View("Index", pagosFiltrados);
+        }
+
+        return View();
     }
     
 }

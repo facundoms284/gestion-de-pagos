@@ -13,7 +13,14 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebApp</a>
+            @if (Context.Session.GetString("Email") == null)
+            {
+            <a class="navbar-brand" asp-area="" asp-controller="Usuario" asp-action="Login">Gestor Pagos V1</a>
+            }
+            else
+            {
+            <a class="navbar-brand" asp-area="" asp-controller="Usuario" asp-action="Perfil">Gestor Pagos V1</a>
+            }
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -32,7 +39,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Perfil">Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Pago" asp-action="Index">Pagos mensuales</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pago" asp-action="Index">Pagos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="TipoDeGasto" asp-action="Index">Tipo de Gastos</a>

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using LogicaNegocio;
+using WebApp.Filters;
 
 namespace WebApp.Controllers;
 
@@ -7,6 +8,7 @@ public class UsuarioController : Controller
 {
     private Sistema sistema = Sistema.Instancia;
     
+    [LoginFilter]
     public IActionResult Index()
     {
         return View();
@@ -27,7 +29,12 @@ public class UsuarioController : Controller
             {
                 HttpContext.Session.SetString("Email", usuario.Email);
                 HttpContext.Session.SetString("Rol", usuario.Rol.ToString());
+                TempData["Mensaje"] = "Logueado con éxito";
                 return RedirectToAction("Perfil");
+            }
+            else
+            {
+                ViewBag.Mensaje = "Datos incorrectos";
             }
         }
         catch(Exception ex)
@@ -38,16 +45,17 @@ public class UsuarioController : Controller
         return View();
     }
 
+    [LoginFilter]
     public IActionResult Logout()
     {
         HttpContext.Session.Clear();
         return RedirectToAction("Login");
     }
 
+    [LoginFilter]
     public IActionResult Perfil()
     {
         string email = HttpContext.Session.GetString("Email");
-        //string rol = HttpContext.Session.GetString("Rol");
         
         if (email == null) return RedirectToAction("Login");
         

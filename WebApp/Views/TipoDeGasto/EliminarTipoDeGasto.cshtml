@@ -1,9 +1,10 @@
 @using LogicaNegocio
 @model LogicaNegocio.TipoDeGasto
 
+<div class="d-flex flex-column gap-2">
 <h2>Eliminar Gasto</h2>
 
-<form method="post">
+<form method="post" class="d-flex flex-column gap-2">
     <div>
         <label for="Nombre" class="form-label">Nombre</label>
         <input type="text" class="form-control" name="Nombre" value="@Model.Nombre" readonly>
@@ -12,7 +13,11 @@
         <label for="Descripcion" class="form-label">Descripcion</label>
         <input type="text" class="form-control" name="Descripcion" value="@Model.Descripcion" readonly>
     </div>
-    <button type="submit" class="btn btn-primary">Eliminar</button>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
 </form>
 
-<span>@ViewBag.Mensaje</span>
+@if (ViewBag.Mensaje != null)
+{
+    <span class="alert alert-info text-center">@ViewBag.Mensaje</span>
+}
+</div>

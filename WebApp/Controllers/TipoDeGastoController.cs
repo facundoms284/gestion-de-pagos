@@ -1,8 +1,10 @@
 using LogicaNegocio;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Filters;
 
 namespace WebApp.Controllers;
 
+[LoginFilter]
 public class TipoDeGastoController : Controller
 {
     private Sistema sistema = Sistema.Instancia;
@@ -14,6 +16,7 @@ public class TipoDeGastoController : Controller
         return View(tiposDeGastos);
     }
 
+    [GerenteFilter]
     public IActionResult AgregarTipoDeGasto()
     {
         return View();
@@ -34,6 +37,7 @@ public class TipoDeGastoController : Controller
             {
                 TipoDeGasto nuevo = new TipoDeGasto(Nombre, Descripcion);
                 sistema.AgregarTipoDeGasto(nuevo);
+                TempData["Mensaje"] = "Tipo de Gasto registrado con éxito";
             }
         }
         catch (Exception e)
@@ -43,6 +47,7 @@ public class TipoDeGastoController : Controller
         return RedirectToAction("Index");
     }
 
+    [GerenteFilter]
     public IActionResult EliminarTipoDeGasto(string Nombre)
     {
         TipoDeGasto gasto =  sistema.ObtenerTipoDeGastoPorNombre(Nombre);
@@ -72,7 +77,7 @@ public class TipoDeGastoController : Controller
             }
 
             sistema.EliminarTipoDeGastoPorNombre(Nombre);
-
+            TempData["Mensaje"] = "Tipo de Gasto eliminado correctamente.";
         }
         catch (Exception e)
         {
