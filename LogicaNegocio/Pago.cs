@@ -68,7 +68,7 @@ public abstract class Pago
         {
             get
             {
-                return CalcularCosto();
+                return Math.Round(CalcularCosto(),2);
             } 
         }
         public abstract double CalcularCosto();

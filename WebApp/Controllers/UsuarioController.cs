@@ -8,12 +8,6 @@ public class UsuarioController : Controller
 {
     private Sistema sistema = Sistema.Instancia;
     
-    [LoginFilter]
-    public IActionResult Index()
-    {
-        return View();
-    }
-
     public IActionResult Login()
     {
         return View();

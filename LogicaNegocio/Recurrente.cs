@@ -92,7 +92,7 @@ public class Recurrente : Pago
 
             return -1; // para hacer referencia que es indefinido.
         }
-        public override double CostoMostrar => CalcularCostoMensual();
+        public override double CostoMostrar => Math.Round(CalcularCostoMensual(),2);
 
         public override double CalcularCosto()
         {

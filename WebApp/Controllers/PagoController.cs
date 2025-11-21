@@ -31,7 +31,6 @@ public class PagoController : Controller
         return View();
     }
 
-    [GerenteFilter]
     public IActionResult AgregarPago(string mensaje)
     {
         if (mensaje != null && !string.IsNullOrEmpty(mensaje))

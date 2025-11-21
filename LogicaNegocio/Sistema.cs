@@ -385,7 +385,7 @@ public class Sistema
         {
             foreach (TipoDeGasto tipo in this._tiposDeGastos)
             {
-                if (tipo.Nombre == nombre)
+                if (tipo.Nombre.ToLower() == nombre.ToLower())
                 {
                     return tipo;
                 }

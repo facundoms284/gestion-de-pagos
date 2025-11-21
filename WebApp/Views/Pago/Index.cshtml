@@ -1,18 +1,18 @@
 @using LogicaNegocio
 @model IEnumerable<Pago>
 
-@{
-    <h1>
-        @(Context.Session.GetString("Rol") == Rol.GERENTE.ToString() ? "Pagos" : "Mis pagos mensuales")
-    </h1>
-}
-
-    <div class="d-flex flex-column gap-2">
-        @if (TempData["Mensaje"] != null)
-        {
-            <span class="alert alert-info text-center">@TempData["Mensaje"]</span>
-        }
-        @if(Model != null && Model.Count() > 0){
+<div class="d-flex flex-column gap-2 p-2">
+    @{
+        <h1>
+            @(Context.Session.GetString("Rol") == Rol.GERENTE.ToString() ? "Pagos" : "Mis pagos mensuales")
+        </h1>
+    }
+    @if (TempData["Mensaje"] != null)
+    {
+        <span class="alert alert-info text-center">@TempData["Mensaje"]</span>
+    }
+    @if (Model != null && Model.Count() > 0)
+    {
         <table class="table table-dark table-hover">
             <thead>
             @if (Context.Session.GetString("Rol") == Rol.GERENTE.ToString())
@@ -47,14 +47,11 @@
             }
             </tbody>
         </table>
-        @if (Context.Session.GetString("Rol") == Rol.GERENTE.ToString())
-        {
-            <a href="~/Pago/AgregarPago"><input type="button" value="Cargar Pago" class="btn btn-primary"/> </a>
-        }
-}
-else
-{
-<span class="alert alert-info">No existen pagos para la fecha seleccionada...</span>
-}
+        <a href="~/Pago/AgregarPago"><input type="button" value="Cargar Pago" class="btn btn-primary"/> </a>
+    }
+    else
+    {
+        <span class="alert alert-info text-center mt-2">No existen pagos para la fecha seleccionada...</span>
+    }
 </div>
 

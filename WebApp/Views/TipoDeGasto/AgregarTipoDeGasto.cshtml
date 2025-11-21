@@ -1,24 +1,23 @@
 @using LogicaNegocio
 @model LogicaNegocio.TipoDeGasto
 
-<div class="d-flex flex-column gap-2 w-60 justify-content-center align-items-center border">
-<h2>Agregar Gasto</h2>
+<div class="d-flex flex-column gap-2 w-60 justify-content-center align-items-center border p-4">
+    <h2>Agregar Gasto</h2>
+    
+    <form method="post" class="d-flex flex-column gap-2 mb-4 p-4 w-100">
+        <div>
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="Nombre" required>
+        </div>
+        <div class="mb-3">
+            <label for="Descripcion" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" name="Descripcion" required>
+        </div>
 
-<form method="post" class="d-flex flex-column gap-2 mb-4 p-4 w-100">
-    <div>
-        <label for="Nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" name="Nombre" required>
-    </div>
-    <div class="mb-3">
-        <label for="Descripcion" class="form-label">Descripcion</label>
-        <input type="text" class="form-control" name="Descripcion" required>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Agregar</button>
-</form>
-
-@if (TempData["Mensaje"] != null)
-{
-    <span class="alert alert-info m-2">@ViewBag.Mensaje</span>
-}
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+    @if (ViewBag.Mensaje != null)
+    {
+        <span class="alert alert-danger text-center">@ViewBag.Mensaje</span>
+    }
 </div>

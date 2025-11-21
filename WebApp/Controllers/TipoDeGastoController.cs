@@ -27,10 +27,10 @@ public class TipoDeGastoController : Controller
     {
         try
         {
-            //validar que no exista
+            // Validar que no exista
             if (sistema.ObtenerTipoDeGastoPorNombre(Nombre) != null)
             {
-                ViewBag.Mensaje = "Tipo de Gasto ya existente";
+                ViewBag.Mensaje = "Tipo de gasto ya existente";
                 return View();
             }
             else

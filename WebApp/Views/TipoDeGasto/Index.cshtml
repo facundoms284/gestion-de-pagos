@@ -1,39 +1,40 @@
 @using LogicaNegocio;
 @model IEnumerable<TipoDeGasto>
 <div class="d-flex flex-column gap-2">
-@if (TempData["Mensaje"] != null)
-{
-    <span class="alert alert-info m-2 text-center">
-        @TempData["Mensaje"]
-    </span>
-}
-
-<table class="table table-dark table-hover">
-    <thead>
-    <tr>
-        <th>Nombre</th>
-        <th>Descripción</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (TipoDeGasto tipoDeGasto in Model)
+    @if (TempData["Mensaje"] != null)
     {
-        <tr>
-            <td>@tipoDeGasto.Nombre</td>
-            <td>@tipoDeGasto.Descripcion</td>
-            <td class="mt-4">
-                <a asp-controller="TipoDeGasto"
-                   asp-action="EliminarTipoDeGasto"
-                   asp-route-Nombre="@tipoDeGasto.Nombre">
-                    <input type="button" value="Eliminar" class="btn btn-danger"/>
-                </a>
-            </td>
-        </tr>
+        <span class="alert alert-info m-2 text-center">
+            @TempData["Mensaje"]
+        </span>
     }
-    </tbody>
-</table>
+    <h1>Tipos de gastos</h1>
 
-<a href="~/TipoDeGasto/AgregarTipoDeGasto"><input type="button" value="Cargar Gasto" class="btn btn-primary"/> </a>
+    <table class="table table-dark table-hover">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (TipoDeGasto tipoDeGasto in Model)
+        {
+            <tr>
+                <td>@tipoDeGasto.Nombre</td>
+                <td>@tipoDeGasto.Descripcion</td>
+                <td class="mt-4">
+                    <a asp-controller="TipoDeGasto"
+                       asp-action="EliminarTipoDeGasto"
+                       asp-route-Nombre="@tipoDeGasto.Nombre">
+                        <input type="button" value="Eliminar" class="btn btn-danger"/>
+                    </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <a href="~/TipoDeGasto/AgregarTipoDeGasto"><input type="button" value="Cargar Gasto" class="btn btn-primary"/> </a>
 </div>
 
