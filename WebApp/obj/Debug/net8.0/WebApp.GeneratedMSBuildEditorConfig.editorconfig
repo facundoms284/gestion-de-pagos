@@ -9,59 +9,59 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApp
 build_property.RootNamespace = WebApp
-build_property.ProjectDir = /Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/
+build_property.ProjectDir = /Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp
+build_property.MSBuildProjectDirectory = /Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/Pago/AgregarPago.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/Pago/AgregarPago.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFnby9BZ3JlZ2FyUGFnby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/Pago/Index.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/Pago/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFnby9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/Shared/Error.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/TipoDeGasto/AgregarTipoDeGasto.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/TipoDeGasto/AgregarTipoDeGasto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb0RlR2FzdG8vQWdyZWdhclRpcG9EZUdhc3RvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/TipoDeGasto/EliminarTipoDeGasto.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/TipoDeGasto/EliminarTipoDeGasto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb0RlR2FzdG8vRWxpbWluYXJUaXBvRGVHYXN0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/TipoDeGasto/Index.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/TipoDeGasto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb0RlR2FzdG8vSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/Usuario/Login.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/Usuario/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpby9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/Usuario/Perfil.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/Usuario/Perfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpby9QZXJmaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/_ViewImports.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/_ViewStart.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/WebApp/Views/Shared/_Layout.cshtml]
+[/Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/WebApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-wrkb45jn1q

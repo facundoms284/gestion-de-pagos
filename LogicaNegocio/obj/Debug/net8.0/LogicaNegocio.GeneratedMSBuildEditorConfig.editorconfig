@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LogicaNegocio
-build_property.ProjectDir = /Users/facundoms284/Documents/ORT/SEMESTRE2/P2/LogicaNegocio/LogicaNegocio/
+build_property.ProjectDir = /Users/facundoms284/Documents/ORT/SEMESTRE2/P2/ObligatorioP2_Malacrida_Moyano/LogicaNegocio/LogicaNegocio/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

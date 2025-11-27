@@ -42,7 +42,8 @@ public class TipoDeGastoController : Controller
         }
         catch (Exception e)
         {
-            throw new Exception(e.Message);
+            ViewBag.Mensaje = "Datos inválidos";
+            return View();
         }
         return RedirectToAction("Index");
     }

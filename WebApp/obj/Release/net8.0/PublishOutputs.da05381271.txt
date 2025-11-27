@@ -1,0 +1,9 @@
+/var/folders/sq/rncqwjnd6vld30lvlkbc6lcc0000gn/T/rider-publish16990887929131241094/WebApp
+/var/folders/sq/rncqwjnd6vld30lvlkbc6lcc0000gn/T/rider-publish16990887929131241094/appsettings.Development.json
+/var/folders/sq/rncqwjnd6vld30lvlkbc6lcc0000gn/T/rider-publish16990887929131241094/appsettings.json
+/var/folders/sq/rncqwjnd6vld30lvlkbc6lcc0000gn/T/rider-publish16990887929131241094/WebApp.dll
+/var/folders/sq/rncqwjnd6vld30lvlkbc6lcc0000gn/T/rider-publish16990887929131241094/WebApp.deps.json
+/var/folders/sq/rncqwjnd6vld30lvlkbc6lcc0000gn/T/rider-publish16990887929131241094/WebApp.runtimeconfig.json
+/var/folders/sq/rncqwjnd6vld30lvlkbc6lcc0000gn/T/rider-publish16990887929131241094/WebApp.pdb
+/var/folders/sq/rncqwjnd6vld30lvlkbc6lcc0000gn/T/rider-publish16990887929131241094/LogicaNegocio.dll
+/var/folders/sq/rncqwjnd6vld30lvlkbc6lcc0000gn/T/rider-publish16990887929131241094/LogicaNegocio.pdb
